@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{DF68BC46-A094-6894-8C2D-146CE2C464E1}</ProjectGuid>
+    <ProjectGuid>{70B41AA5-6B15-1674-2032-55B53DE91462}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -52,6 +52,7 @@
      <None Include="Assets\Asset Store\NatureStarterKit2\info.txt" />
      <None Include="Assets\Terrain\Standard Assets\Effects\TessellationShaders\Shaders\BumpedSpecularSmooth.shader" />
      <None Include="Assets\Terrain\Standard Assets\Effects\Projectors\Guidelines.txt" />
+     <None Include="Assets\Audio\Rocklynn Productions - Water Splash Pack\Read me.txt" />
      <None Include="Assets\Asset Store\Soldier3\ToonSoldiers_demo.txt" />
      <None Include="Assets\Terrain\Standard Assets\Effects\ImageEffects\Readme.txt" />
      <None Include="Assets\Terrain\Standard Assets\Environment\Water\Water4\Shaders\FXWater4Simple.shader" />
@@ -133,7 +134,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{9BA9321E-7469-DF1D-842F-0556C9AA4254}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
+      <Project>{79EB54F4-89B9-0E5F-342B-5C10C941ACDA}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

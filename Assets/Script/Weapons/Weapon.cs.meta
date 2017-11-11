@@ -1,10 +1,15 @@
 fileFormatVersion: 2
 guid: 1b3bfae53e3660642b04b3556c747c86
-timeCreated: 1509697602
+timeCreated: 1510375558
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - muzzle: {instanceID: 0}
+  - nbullet: {instanceID: 0}
+  - sbullet: {instanceID: 0}
+  - clipReloadBullet: {fileID: 8300000, guid: 871d3bc0ec4d53f47bcc73c9e0f204c4, type: 3}
+  - clipShoot: {fileID: 8300000, guid: f2bf4deb241521f418b24bd45a239fc5, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

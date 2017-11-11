@@ -73,6 +73,7 @@ public class Crawler : LivingEntity {
 		pathFinder.speed = 0;
 		pathFinder.enabled = false;
 		isAttack = true;
+		animator.SetFloat ("speed", 0);
 		animator.SetBool ("isAttack", true);
 	}
 
