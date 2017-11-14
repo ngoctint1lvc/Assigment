@@ -8,20 +8,19 @@ namespace MyGame {
 	public class Player : LivingEntity {
 
 		public float moveSpeed;
-		public Vector2 viewAngleConstraint = new Vector2 (-5f, 5f);
 		PlayerController controller;
 		Camera viewCamera;
 		WeaponController weaponController;
 		Animator myAnima;
 
 		protected override void Start() {
-			Cursor.lockState = CursorLockMode.Locked;
 			base.Start();
+			Cursor.lockState = CursorLockMode.Locked;
+			OnDeath += OnPlayerDeath;
 			GetAttribute();
 		}
 
 		void Update() {
-
 			if (Input.GetKeyDown (KeyCode.Space)) {
 				if (Cursor.lockState == CursorLockMode.Locked) {
 					Cursor.lockState = CursorLockMode.None;
@@ -30,7 +29,6 @@ namespace MyGame {
 				}
 			}
 			MoveInput();
-			//LookInput();
 			AttackInput();
 		}
 
@@ -51,6 +49,7 @@ namespace MyGame {
 			else myAnima.SetBool("Walk", false);
 		}
 
+		/*
 		void LookInput() {
 			// Look input
 			Ray ray = viewCamera.ScreenPointToRay(new Vector3 (Screen.width * 0.5f, Screen.height * 0.5f, 0));
@@ -65,21 +64,8 @@ namespace MyGame {
 				Debug.DrawLine(ray.origin, point, Color.blue);
 				controller.LookAt(point);
 			};
-
-			/*
-			Vector2 cameraAngle = viewCamera.GetComponent<ThirdPersonCamera> ().angleConstraint;
-			float viewAngle;
-			if (cameraAngle.x < cameraAngle.y) {
-				viewAngle = Mathf.Lerp (viewAngleConstraint.x, viewAngleConstraint.y, (viewCamera.transform.localEulerAngles.x - cameraAngle.x) / (cameraAngle.y - cameraAngle.x));
-			} else {
-				print ("Error: Please check camera angle constraints");
-				return;
-			}
-
-			print ("view angle = " + viewAngle);
-			gameObject.transform.eulerAngles = new Vector3 (viewAngle, transform.eulerAngles.y, transform.eulerAngles.z);
-			*/
 		}
+		*/
 
 		void AttackInput() {
 			// Weapon Input
@@ -88,10 +74,9 @@ namespace MyGame {
 				//myAnima.SetBool("Shoot", true);
 			}
 		}
-	}
 
-	public enum CameraMode{
-		FirstPerson,
-		ThirdPerson
+		void OnPlayerDeath(){
+			viewCamera.transform.parent = null;
+		}
 	}
 }
