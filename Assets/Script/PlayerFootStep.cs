@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using MyGame;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(AudioSource))]
@@ -10,6 +11,7 @@ public class PlayerFootStep : MonoBehaviour {
 	public AudioClip stepOnWater;
 
 	public const float stepRate = 2.3f;
+	public const float waterLevel = 1.5f;
 	float nextStepTime;
 	AudioSource audioSource;
 
@@ -18,7 +20,7 @@ public class PlayerFootStep : MonoBehaviour {
 	}
 
 	void Update(){
-		if (transform.position.y < 1.5f) {
+		if (transform.position.y < waterLevel) {
 			audioSource.clip = stepOnWater;
 		} else {
 			audioSource.clip = stepOnGround;

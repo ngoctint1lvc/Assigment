@@ -17,23 +17,26 @@ public class EnemyAudio : MonoBehaviour {
 	float nextStepTime;
 	float nextAttackTime;
 	float nextComeTime;
-	public const float runtStepRate = 3f;
-	public const float walkStepRate = 2.3f;
+	public const float runtStepRate = 4f;
+	public const float walkStepRate = 1.5f;
+	public const float waterLevel = 1.5f;
 	Transform player;
 	Animator animator;
 
-	/*
+
 	void Awake(){
-		GameObject newGameObject = new GameObject ("Enemy Step Audio");
+		GameObject newGameObject = new GameObject ("Crawler Step Audio");
 		newGameObject.AddComponent<AudioSource> ();
 		newGameObject.transform.parent = transform;
 		newGameObject.transform.localPosition = Vector3.zero;
 	}
-	*/
+
 
 	void Start(){
 		enemySoundAudio = GetComponent<AudioSource> ();
-		enemyStepAudio = GameObject.Find ("CrawlerStepAudio").GetComponent<AudioSource> ();
+		enemyStepAudio = GameObject.Find ("Crawler Step Audio").GetComponent<AudioSource> ();
+		enemyStepAudio.spatialBlend = 1;
+		enemyStepAudio.volume = 1;
 		animator = GetComponentInChildren<Animator> ();
 
 		if (GameObject.FindGameObjectWithTag ("Player") != null) {
@@ -44,7 +47,7 @@ public class EnemyAudio : MonoBehaviour {
 	}
 
 	void Update(){
-		if (transform.position.y > 1.5f) {
+		if (transform.position.y > waterLevel) {
 			enemyStepAudio.clip = stepOnGround;
 		} else {
 			enemyStepAudio.clip = stepOnWater;

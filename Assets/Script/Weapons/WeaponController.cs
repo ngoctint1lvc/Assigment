@@ -12,15 +12,13 @@ namespace MyGame {
         void Start() {
             if (startingWeapon != null) EquipWeapon(startingWeapon);
         }
-        void Update() {
-
-        }
 
         public void EquipWeapon(Weapon item) {
             if (equippedWeapon != null) Destroy(equippedWeapon.gameObject);
-            equippedWeapon = Instantiate(item, weaponHold.position, weaponHold.rotation) as Weapon;
+			equippedWeapon = Instantiate(item, weaponHold.position, weaponHold.rotation) as Weapon;
             equippedWeapon.transform.parent = weaponHold;
         }
+
         public void Attack() {
             if (equippedWeapon != null) equippedWeapon.Attack();
         }

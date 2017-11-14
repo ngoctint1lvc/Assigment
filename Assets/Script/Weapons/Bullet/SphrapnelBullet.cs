@@ -19,6 +19,7 @@ namespace MyGame {
         void Update() {
             MoveBullet(speed, damage);
         }
+
         public void SetSpeed(float newSpeed) {
             speed = newSpeed;
         }
@@ -34,6 +35,7 @@ namespace MyGame {
             }
             GameObject.Destroy(gameObject);
         }
+
         void ExtendDamage(Vector3 hitPoint) {
             GameObject[] Enemy = GameObject.FindGameObjectsWithTag("Enemy");
 

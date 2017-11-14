@@ -17,7 +17,7 @@ public class Crawler : LivingEntity {
 	public LayerMask layer;
 	const float timeBetweenUpdateDestination = 0.1f;
 	float nextTimeUpdateDestination;
-	const float stopDistance = 2f;
+	const float stopDistance = 1.5f;
 	const float smoothTime = 0.5f;
 	float currentVelocity = 0;	// Dung cho ham Mathf.SmoothDamp()
 

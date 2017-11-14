@@ -23,7 +23,7 @@ namespace MyGame {
 
         delegate void Offensive();
         Offensive att;
-        void Start() {
+		void Start() {
             if (this.tag == "Gun1") att = Shoot1;
             if (this.tag == "Gun2") att = Shoot2;
             if (this.tag == "Gun3") att = Shoot3;
@@ -44,13 +44,24 @@ namespace MyGame {
 					return;
 				}
 
-                NormalBullet newProjectile = Instantiate(nbullet, muzzle.position, muzzle.rotation) as NormalBullet;
-                newProjectile.SetSpeed(muzzleVelocity);
+				NormalBullet newProjectile = Instantiate(nbullet, transform.position, transform.rotation) as NormalBullet;
+				newProjectile.transform.parent = transform;
+				//newProjectile.transform.localRotation = Quaternion.identity;
+				//newProjectile.transform.localPosition = Vector3.zero;
+
+				//print ("bulletAngle : " + bulletAngle);
+				//print ("bulletPosition: " + bulletPosition);
+
+				newProjectile.transform.parent = null;
+
+				newProjectile.SetSpeed(muzzleVelocity);
+				//newProjectile.transform.parent = null;
 
 				remainBullets--;
 				AudioManager.instance.PlaySound (clipShoot, muzzle.position);
             }
         }
+
         void Shoot2() {
             if (Time.time > nextTurn) {
                 nextTurn = Time.time + msDelay / 1000;
@@ -61,21 +72,19 @@ namespace MyGame {
 					remainBullets = numberBullets;
 					return;
 				}
-
-                // Đạn có thể bị chệch hướng
-                Quaternion bulletDirection;
-                bulletDirection.x = muzzle.rotation.x;
-                bulletDirection.y = muzzle.rotation.y;
-                bulletDirection.z = muzzle.rotation.z;
-                bulletDirection.w = muzzle.rotation.w + Random.Range(-0.25f, 0.25f);
                 
-                NormalBullet newProjectile = Instantiate(nbullet, muzzle.position, bulletDirection) as NormalBullet;
+				NormalBullet newProjectile = Instantiate(nbullet, transform.position, transform.rotation) as NormalBullet;
+				newProjectile.transform.parent = transform;
+				newProjectile.transform.localPosition = Vector3.zero;
+				newProjectile.transform.localRotation = Quaternion.identity;
+				newProjectile.transform.parent = null;
                 newProjectile.SetSpeed(muzzleVelocity);
 
 				remainBullets--;
 				AudioManager.instance.PlaySound (clipShoot, muzzle.position);
             }
         }
+
         void Shoot3() {
             if (Time.time > nextTurn) {
                 nextTurn = Time.time + msDelay / 1000;
@@ -87,7 +96,11 @@ namespace MyGame {
 					return;
 				}
 
-                SphrapnelBullet newProjectile = Instantiate(sbullet, muzzle.position, muzzle.rotation) as SphrapnelBullet;
+                SphrapnelBullet newProjectile = Instantiate(sbullet, transform.position, transform.rotation) as SphrapnelBullet;
+				newProjectile.transform.parent = transform;
+				newProjectile.transform.localPosition = Vector3.zero;
+				newProjectile.transform.localRotation = Quaternion.identity;
+				newProjectile.transform.parent = null;
                 newProjectile.SetSpeed(muzzleVelocity);
 
 				remainBullets--;

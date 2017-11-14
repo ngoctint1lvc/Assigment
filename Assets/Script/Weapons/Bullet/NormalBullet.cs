@@ -19,9 +19,11 @@ namespace MyGame {
         void Update() {
             MoveBullet(speed, damage);
         }
+
         public void SetSpeed(float newSpeed) {
             speed = newSpeed;
         }
+
         protected override void OnHitObject(Collider c, Vector3 hitPoint, float damage) {
             IDamageable damageableObject = c.GetComponent<IDamageable>();
             if (damageableObject != null) {

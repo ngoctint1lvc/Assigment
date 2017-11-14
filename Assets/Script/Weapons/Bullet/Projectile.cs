@@ -12,6 +12,7 @@ namespace MyGame {
             CheckCollisions(moveDistance, damage);
             transform.Translate(Vector3.forward * moveDistance);
         }
+
         void CheckCollisions(float moveDistance, float damage) {
             Ray ray = new Ray(transform.position, transform.forward);
             RaycastHit hit;
