@@ -13,6 +13,10 @@ namespace MyGame {
 		WeaponController weaponController;
 		Animator myAnima;
 
+		bool isStunned;
+		float stopStunnedTime;
+		Vector3 stunnedPosition;
+
 		protected override void Start() {
 			base.Start();
 			Cursor.lockState = CursorLockMode.Locked;
@@ -21,6 +25,7 @@ namespace MyGame {
 		}
 
 		void Update() {
+			// Toggle de hien / an con tro chuot
 			if (Input.GetKeyDown (KeyCode.Space)) {
 				if (Cursor.lockState == CursorLockMode.Locked) {
 					Cursor.lockState = CursorLockMode.None;
@@ -28,6 +33,15 @@ namespace MyGame {
 					Cursor.lockState = CursorLockMode.Locked;
 				}
 			}
+
+			if (isStunned) {
+				if (Time.time > stopStunnedTime) {
+					isStunned = false;
+				}
+				transform.position = stunnedPosition;
+				return;
+			}
+				
 			MoveInput();
 			AttackInput();
 		}
@@ -49,24 +63,6 @@ namespace MyGame {
 			else myAnima.SetBool("Walk", false);
 		}
 
-		/*
-		void LookInput() {
-			// Look input
-			Ray ray = viewCamera.ScreenPointToRay(new Vector3 (Screen.width * 0.5f, Screen.height * 0.5f, 0));
-
-			Plane groundPlane = new Plane(Vector3.up * 2, Vector3.up);
-			// rayDistance là khoảng cách từ camera đến điểm trên tia sáng ray
-			float rayDistance;
-			// lấy giao điểm của mặt phẳng groundPlane và tia sáng ray, rayDistance = |camera->groundPlane|
-			if (groundPlane.Raycast(ray, out rayDistance)) {
-				// lấy điểm point ở khoảng cách rayDistance dọc theo tia sáng từ camera
-				Vector3 point = ray.GetPoint(rayDistance);
-				Debug.DrawLine(ray.origin, point, Color.blue);
-				controller.LookAt(point);
-			};
-		}
-		*/
-
 		void AttackInput() {
 			// Weapon Input
 			if (Input.GetMouseButton(0)) {
@@ -77,6 +73,15 @@ namespace MyGame {
 
 		void OnPlayerDeath(){
 			viewCamera.transform.parent = null;
+		}
+
+		public void Stunned(float stunnedTime){
+			stopStunnedTime = Time.time + stunnedTime;
+			isStunned = true;
+			myAnima.SetBool ("Walk", false);
+
+			// Luu vi tri bi choang hien tai
+			stunnedPosition = transform.position;
 		}
 	}
 }

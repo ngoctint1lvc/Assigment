@@ -1,36 +1,20 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Crawler.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Enemy.cs">
     <Files>
-      <File FileName="Assets\Script\Player.cs" Line="79" Column="39" />
+      <File FileName="Assets\Script\Player.cs" Line="1" Column="1" />
       <File FileName="Assets\Script\PlayerController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\ThirdPersonCamera.cs" Line="4" Column="1" />
-      <File FileName="Assets\Script\PlayerFootStep.cs" Line="3" Column="19" />
-      <File FileName="Assets\Script\IDamagable.cs" Line="11" Column="1" />
-      <File FileName="Assets\Script\Weapon.cs" Line="62" Column="14" />
-      <File FileName="Assets\Script\MainmenuController.cs" Line="17" Column="2" />
-      <File FileName="Assets\Script\LivingEntity.cs" Line="12" Column="44" />
-      <File FileName="Assets\Script\Golem.cs" Line="85" Column="53" />
-      <File FileName="Assets\Script\Cyclop.cs" Line="87" Column="53" />
-      <File FileName="Assets\Script\Crawler.cs" Line="89" Column="30" />
-      <File FileName="Assets\Script\Projectile.cs" Line="25" Column="52" />
-      <File FileName="Assets\Script\NormalBullet.cs" Line="32" Column="44" />
-      <File FileName="Assets\Script\SphrapnelBullet.cs" Line="10" Column="33" />
+      <File FileName="Assets\Script\Weapon.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\MainmenuController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\LivingEntity.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Golem.cs" Line="3" Column="19" />
+      <File FileName="Assets\Script\Cyclop.cs" Line="9" Column="36" />
+      <File FileName="Assets\Script\Crawler.cs" Line="9" Column="25" />
+      <File FileName="Assets\Script\Enemy.cs" Line="91" Column="4" />
+      <File FileName="Assets\Script\EnemyAudio.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\MusicThemeManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\AudioManager.cs" Line="1" Column="1" />
     </Files>
-    <Pads>
-      <Pad Id="ProjectPad">
-        <State name="__root__">
-          <Node name="Assigment" expanded="True">
-            <Node name="Assembly-CSharp" expanded="True">
-              <Node name="Script" expanded="True">
-                <Node name="Crawler.cs" selected="True" />
-              </Node>
-            </Node>
-            <Node name="Assembly-CSharp-Editor" expanded="True" />
-          </Node>
-        </State>
-      </Pad>
-    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
